@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+{% load static %}
+{% include '../header.html' %}
+
+  <title>بلاگ</title>
+
+<body class="bg-[#fcfcfc]">
+
+  <main class="max-w-[1500px] mx-auto px-3 md:px-5 mt-44 md:mt-32">
+    <!-- top section -->
+    <div class="lg:mr-10 lg:ml-18 h-full p-5 text-sm bg-white rounded-xl shadow-box-sm flex items-center gap-x-2">
+      <a href="" class="text-zinc-800 hover:text-red-400 transition">
+        خانه
+      </a>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3d3d3d" viewBox="0 0 256 256"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg>
+      </div>
+      <a href="" class="text-zinc-800 hover:text-red-400 transition">
+        صفحه
+      </a>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3d3d3d" viewBox="0 0 256 256"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg>
+      </div>
+      <a class="text-red-400" href="">
+        وبلاگ
+      </a>
+    </div>
+
+<!-- section blog -->
+
+        <div class="rounded-2xl mx-auto text-gray-100 mt-5">
+          <!-- main blog -->
+
+
+
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-3 lg:gap-5 mt-5 mb-10">
+             {% for dataarticle in dataarticle %}
+            <div class="card bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="{{ dataarticle.article_image.url}}" class="w-full h-60 object-cover" alt="...">
+                <div class="p-4">
+                    <h5 class="text-lg font-semibold mb-2 text-black">{{ dataarticle.article_title}}</h5>
+                    <p class="text-gray-700 mb-4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="mb-2">
+                        <p class="text-sm text-gray-600">{{ dataarticle.article_date}}</p>
+                    </div>
+                    <div>
+                        <a href="#" class="text-sm text-blue-500 hover:underline">مطالعه بیشتر</a>
+                    </div>
+
+                </div>
+            </div>
+            {%  endfor %}
+
+
+        </div>
+    </div>
+
+      <!-- number pages -->
+      <div class="mb-14">
+        <ul class="flex items-center justify-center gap-x-2 md:gap-x-3 h-8 text-sm">
+          <li>
+            <a href="#" class="flex items-center justify-center transition shadow-lg px-3 h-8 ms-0 text-gray-500 bg-white rounded-lg  hover:bg-red-100 hover:text-red-400">
+              <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"></path>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-center transition shadow-lg px-3 h-8 text-red-500 bg-red-200 rounded-lg hover:bg-red-100">1</a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-center transition shadow-lg px-3 h-8 text-gray-500 bg-white rounded-lg hover:bg-red-100 hover:text-red-400">2</a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-center transition shadow-lg px-3 h-8 rounded-lg text-gray-500 bg-white  hover:bg-red-100 hover:text-red-400">3</a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-center transition shadow-lg px-3 h-8 text-gray-500 bg-white rounded-lg  hover:bg-red-100 hover:text-red-400">...</a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-center transition shadow-lg px-3 h-8 text-gray-500 bg-white rounded-lg  hover:bg-red-100 hover:text-red-400">8</a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-center transition shadow-lg px-3 h-8 text-gray-500 bg-white rounded-lg  hover:bg-red-100 hover:text-red-400">
+              <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+{% include 'footer.html' %}

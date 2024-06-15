@@ -1,0 +1,23 @@
+
+<div class="grid grid-cols-2 md:flex gap-5 content" id="contentArea">
+<!-- add_product.html -->
+
+     <!--h1 class="text-2xl mb-6">افزودن محصول</h1>
+    <form method="POST">
+        {#% csrf_token %#}
+        {#  #}{ form.as_div }}
+        <button type="submit">Add Product</button>
+    </form-->
+    <iframe name="content_frame" src="" frameborder="0"></iframe>
+
+<script>
+    document.getElementById("addProductLink").addEventListener("click", function(event){
+        event.preventDefault();
+        var url = "{% url 'adminpanel:add_product' %}";
+        document.getElementsByName('content_frame')[0].src = url;
+    });
+</script>
+
+
+
+</div>

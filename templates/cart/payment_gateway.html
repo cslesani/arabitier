@@ -1,0 +1,15 @@
+
+<h1>اتصال به درگاه پرداخت</h1>
+
+<p>لطفا منتظر بمانید...</p>
+
+<!-- فرم یا اسکریپت اتصال به درگاه پرداخت -->
+<form id="paymentForm" action="URL_درگاه_پرداخت" method="POST">
+  <input type="hidden" name="amount" value="{{ order.total_price }}">
+  <input type="hidden" name="order_id" value="{{ order.order_number }}">
+  <!-- سایر فیلدهای مورد نیاز درگاه پرداخت -->
+</form>
+
+<script type="text/javascript">
+  document.getElementById('paymentForm').submit();
+</script>

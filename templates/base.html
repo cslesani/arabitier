@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+{% load static %}
+<head>
+   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{% static 'assets/css/output.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/font.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/dependencies/swiper.min.css' %}" />
+  <link  rel="stylesheet" href="{% static 'assets/css/app.css' %}" />
+
+  <link rel="stylesheet" href="{% static 'assets/css/dependencies/swiper-product.css' %}">
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet"/>
+
+</head>
+
+<body class="bg-[#fcfcfc]">
+{% include 'header.html' %}
+
+<!----------------------------block------------------------>
+{% block index %}{% endblock %}
+{% block articleindex %}{% endblock %}
+
+
+<!----------------------------endblock---------------------->
+
+<script defer src="{% static 'assets/js/dependencies/flowbite.min.js' %}"></script>
+<script defer src="{% static 'assets/js/app.js' %}"></script>
+<!-- HERO SLIDER -->
+<script src="{% static 'assets/js/dependencies/swiper.min.js' %}"></script>
+<script src="{% static 'assets/js/heroSlider.js' %}"></script>
+<!-- OFF SLIDER -->
+<script src="{% static 'assets/js/slider.js' %}"></script>
+
+<script src="{% static 'assets/js/swiper-product.js' %}"></script>
+
+{% include 'footer.html' %}
+
+</body>
+</html>
