@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Product, Cart, CartItem
 import jdatetime
 from .models import Cart, CartItem, Order, OrderItem
+from userpanel.models import UserProfile
 from django.http import JsonResponse
 
 @login_required
@@ -33,6 +34,8 @@ def view_cart(request):
     cart_items = CartItem.objects.filter(cart=cart)
     countcart = CartItem.objects.filter(cart__user=request.user).count()
     current_date_jalali = jdatetime.datetime.now().strftime('%Y/%m/%d')
+    user_profile = UserProfile.objects.get(user=request.user)
+
     if not cart_items.exists():
         return render(request, 'cart/empty_cart.html')
     else:
@@ -72,6 +75,7 @@ def view_cart(request):
             'countcart': countcart,
             'total_price': total_price,
             'current_date_jalali': current_date_jalali,
+            'user_profile': user_profile,
         }
 
         return render(request, 'cart/view_cart.html', context)

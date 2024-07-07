@@ -5,6 +5,7 @@ from django.db import models
 
 class Product(models.Model):
     #artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
+
     product_name = models.CharField(max_length=200)
     product_brandname = models.CharField(max_length=100,default='')
     product_contry = models.CharField(max_length=100,default='ایران')
@@ -23,6 +24,10 @@ class Product(models.Model):
     product_profitpercent = models.IntegerField(default=0)
     product_price_final = models.IntegerField(default=0)
     product_type=models.CharField(max_length=100,default='سواری')
+    product_car_type=models.CharField(max_length=100,default='پژو')
+    product_model=models.CharField(max_length=100,default='206')
+    product_garanty_year=models.IntegerField(default=0)
+    product_create_year = models.IntegerField(default=0)
     product_image = models.ImageField(blank=True,upload_to='product/')
 
 

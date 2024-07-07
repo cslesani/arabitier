@@ -6,137 +6,14 @@
   <!-- hero slider -->
   <div class="mt-44 md:mt-28">
     <!-- desktop -->
-   <div class="relative bg-gray-100">
-    <div class="absolute inset-0 bg-cover bg-center cursor-pointer" style="background-image: url('home/desktop/controllers/index/index/assets/img/warrior.jpg');" onclick="window.location = 'https://hypertire.com/brands/warrior'"></div>
-    <div class="container mx-auto p-4 relative z-10">
-        <div class="bg-white shadow-lg p-6 rounded-lg">
-            <ul class="flex justify-center space-x-4 mb-4">
-                <li class="text-center cursor-pointer">
-                    <i class="icon icon-car-1 text-xl"></i>
-                    <a href="#car" class="block mt-2">سواری</a>
-                </li>
-                <li class="text-center cursor-pointer">
-                    <i class="icon icon-truck-1 text-xl"></i>
-                    <a href="#truck" class="block mt-2">کامیونی اتوبوسی</a>
-                </li>
-                <li class="text-center cursor-pointer">
-                    <i class="icon icon-tractor text-xl"></i>
-                    <a href="#agriculture" class="block mt-2">کشاورزی</a>
-                </li>
-            </ul>
-            <div class="selectors mb-4">
-                <div class="flex justify-center mb-4">
-                    <div class="item text-center active mx-2 cursor-pointer" item-dir="right" for="by-size">
-                        <h3 class="text-lg">براساس سایز تایر</h3>
-                    </div>
-                    <div class="item text-center mx-2 cursor-pointer" item-dir="left" for="by-brand">
-                        <h3 class="text-lg">براساس نوع خودرو</h3>
-                    </div>
-                </div>
-                <div class="border-t-2 border-gray-200">
-                    <div class="item w-full h-1 bg-blue-500"></div>
-                </div>
-            </div>
-            <ul class="selects tabs" id="by-brand">
-                <form method="get" action="/tires/">
-                    <li class="mb-4">
-                        <label for="neo-carsBrands" class="block mb-2">انتخاب برند</label>
-                        <select id="neo-carsBrands" name="carsBrands" class="w-full p-2 border rounded">
-                            <option value="0">انتخاب برند</option>
-                            <option value="101">آئودی</option>
-                            <!-- سایر گزینه‌ها -->
-                        </select>
-                    </li>
-                    <li class="mb-4">
-                        <label for="neo-carsModels" class="block mb-2">انتخاب مدل</label>
-                        <select id="neo-carsModels" name="carsModels" class="w-full p-2 border rounded">
-                            <option value="0">انتخاب مدل</option>
-                        </select>
-                    </li>
-                    <li class="mb-4">
-                        <label for="neo-carsTips" class="block mb-2">انتخاب تیپ</label>
-                        <select id="neo-carsTips" name="carsTips" class="w-full p-2 border rounded">
-                            <option value="0">انتخاب تیپ</option>
-                        </select>
-                    </li>
-                    <li class="mb-4">
-                        <label for="neo-carsYears" class="block mb-2">انتخاب سال</label>
-                        <select id="neo-carsYears" name="carsYears" class="w-full p-2 border rounded">
-                            <option value="0">انتخاب سال</option>
-                        </select>
-                    </li>
-                    <li class="mb-4">
-                        <label for="neo-carsSizes" class="block mb-2">انتخاب سایز</label>
-                        <select id="neo-carsSizes" name="carsSizes" class="w-full p-2 border rounded">
-                            <option value="0">انتخاب سایز</option>
-                        </select>
-                    </li>
-                    <li class="text-center">
-                        <button id="neo-searchBySize" class="bg-blue-500 text-white py-2 px-4 rounded" type="submit">
-                            جستجو
-                        </button>
-                    </li>
-                </form>
-            </ul>
-            <ul class="selects tabs active" id="by-size">
-                <form method="get" action="/tires/">
-                    <li class="mb-4">
-                        <label for="neo-tiresWidth" class="block mb-2">پهنای تایر</label>
-                        <select id="neo-tiresWidth" name="width" class="w-full p-2 border rounded">
-                            <option value="0" selected>پهنای تایر</option>
-                            <option value="12/4">12/4</option>
-                            <!-- سایر گزینه‌ها -->
-                        </select>
-                    </li>
-                    <li class="mb-4">
-                        <label for="neo-tiresRatio" class="block mb-2">نسبت منظر</label>
-                        <select id="neo-tiresRatio" name="ratio" class="w-full p-2 border rounded">
-                            <option value="0" selected>نسبت منظر</option>
-                            <option value="9.50">9.50</option>
-                            <!-- سایر گزینه‌ها -->
-                        </select>
-                    </li>
-                    <li class="mb-4">
-                        <label for="neo-tiresRim" class="block mb-2">قطر رینگ</label>
-                        <select id="neo-tiresRim" name="rim" class="w-full p-2 border rounded">
-                            <option value="-10000" selected>قطر رینگ</option>
-                            <option value="13">13</option>
-                            <!-- سایر گزینه‌ها -->
-                        </select>
-                    </li>
-                    <li class="text-center">
-                        <button id="neo-searchByBrand" class="bg-blue-500 text-white py-2 px-4 rounded" type="submit">
-                            جستجو
-                        </button>
-                    </li>
-                </form>
-            </ul>
-        </div>
-    </div>
-</div>
+ <script src="https://cdn.tailwindcss.com"></script><script src="https://cdn.tailwindcss.com"></script>
+   {% include 'tierslider.html' %}
 
     <!-- mobile -->
     <div class="swiper heroSlider md:hidden">
       <div class="swiper-wrapper">
-        <a href="" class="swiper-slide px-4">
-          <img class="rounded-lg" src="{% static 'assets/image/heroSlider/1m.png' %}" alt="">
-        </a>
-        <a href="" class="swiper-slide px-4">
-          <img class="rounded-lg" src="{% static 'assets/image/heroSlider/2m.png' %}" alt="">
-        </a>
-        <a href="" class="swiper-slide px-4">
-          <img class="rounded-lg" src="{% static 'assets/image/heroSlider/3m.png' %}" alt="">
-        </a>
-        <a href="" class="swiper-slide px-4">
-          <img class="rounded-lg" src="{% static 'assets/image/heroSlider/4m.png' %}" alt="">
-        </a>
-        <a href="" class="swiper-slide px-4">
-          <img class="rounded-lg" src="{% static 'assets/image/heroSlider/5m.png' %}" alt="">
-        </a>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
+
+
     </div>
   </div>
   <main class="max-w-[1500px] mx-auto px-3 md:px-5">
@@ -187,7 +64,7 @@
             خواندنی ها
           </span>
         </div>
-        <a href="">
+        <a href="{% url 'article' %}">
           <div class="transition px-4 py-2 flex justify-center items-center text-sm text-zinc-700 hover:text-zinc-600">
             مشاهده همه
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#292929" viewBox="0 0 256 256"><path d="M164.24,203.76a6,6,0,1,1-8.48,8.48l-80-80a6,6,0,0,1,0-8.48l80-80a6,6,0,0,1,8.48,8.48L88.49,128Z"></path></svg>

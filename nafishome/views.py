@@ -1,6 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from .models import Product
 from article.models import Article
+from .forms import ProductSearchForm
 
 
 
@@ -12,6 +13,7 @@ from django.template import loader
 
 
 def index(request):
+
     data = Product.objects.all()
     articleindexdata = Article.objects.all().order_by('-id')[:4]
 
@@ -48,5 +50,22 @@ def index(request):
         elif p.product_discountpercent_total == 0 and p.product_discountpercent_this == 0:
             p.product_discount_price = None
 
-    return render(request, 'index.html', {'data': data, 'articleindexdata': articleindexdata, 'countcart': countcart})
+        if request.method == 'POST':
+            form = ProductSearchForm(request.POST)
+            if form.is_valid():
+                products = Product.objects.filter(
+                    brand=form.cleaned_data['product_brandname'],
+                    model=form.cleaned_data['product_model'],
+                    type=form.cleaned_data['product_car_type'],
+                    year=form.cleaned_data['product_create_year'],
+                    size=form.cleaned_data['product_width']
+                )
+                return render(request, 'product_search_results.html', {'form': form, 'products': products})
+        else:
+            form = ProductSearchForm()
 
+    return render(request, 'index.html', {'data': data, 'articleindexdata': articleindexdata, 'countcart': countcart,'form': form})
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    return render(request, 'product_detail.html', {'product': product})

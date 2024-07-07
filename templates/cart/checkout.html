@@ -1,33 +1,43 @@
+{% extends 'cart/bsaecart.html' %}
+{% load static %}
+{%  block chekout %}
 
-<h1>بررسی نهایی و تایید سفارش</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>نام محصول</th>
-      <th>تعداد</th>
-      <th>قیمت واحد (تومان)</th>
-      <th>قیمت کل (تومان)</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for item in cart_items %}
-    <tr>
-      <td>{{ item.product.product_name }}</td>
-      <td>{{ item.quantity }}</td>
-      <td>{{ item.product.product_price }}</td>
-      <td>{{ item.quantity}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="4">مجموع قیمت: {{ total_price }} تومان</td>
-    </tr>
-  </tfoot>
-</table>
+<div class="md:w-9/12 bg-white shadow-box-md rounded-2xl p-5 mt-5 md:mt-0">
+  <div class="">
+    <div class="text-zinc-800 text-lg mb-4">
+      بررسی نهایی و تایید سفارش:
+    </div>
+    <div class="mt-7 flex flex-col md:flex-row border-b pb-4">
+    <table>
+      <thead>
+        <tr>
+          <th>نام محصول</th>
+          <th>تعداد</th>
+          <th>قیمت واحد (تومان)</th>
+          <th>قیمت کل (تومان)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+        <tr>
+          <td>{{ item.product.product_name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.product.product_price }}</td>
+          <td>{{ item.quantity}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">مجموع قیمت: {{ total_price }} تومان</td>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
+  </div>
 
 <form method="post">
   {% csrf_token %}
   <button type="submit" class="btn btn-success">تایید و پرداخت</button>
 </form>
+{% endblock %}

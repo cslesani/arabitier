@@ -1,0 +1,13 @@
+{% extends 'userpanel/baseuser.html' %}
+{% load static %}
+{%  block useraddress %}
+ <div class="md:w-9/12 bg-white shadow-box-md rounded-2xl p-5 mt-5 md:mt-0">
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button type="submit" class="px-7 py-2 text-center text-white bg-red-400 hover:bg-red-500 transition rounded-lg text-sm">ثبت اطلاعات</button>
+    </form>
+ </div>
+{% endblock %}

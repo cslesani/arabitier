@@ -1,0 +1,148 @@
+{% load static %}
+
+<body class="bg-[#fcfcfc]">
+  <!-- header select tire -->
+  <div class="bg-red-400 w-full flex flex-wrap mt-10 justify-center lg:justify-between p-3" style="min-height: 20rem;">
+  <form class="bg-red-500 rounded-lg p-3 md:p-5 shadow-lg shadow-zinc-700 flex gap-x-3 md:gap-x-5 w-full" style="width: 34rem;">
+      <div>
+        <ul class="grid w-full gap-6">
+          <li>
+            <input type="radio" id="1" name="hosting" value="1" class="hidden peer" required="" checked>
+            <label for="1" class="inline-flex items-center justify-center w-full px-4 py-1 text-gray-600 rounded-lg cursor-pointer peer-checked:bg-red-100 peer-checked:bg-opacity-20 hover:text-gray-600 hover:bg-red-200 hover:bg-opacity-30">
+              <div class="text-center">
+                <svg class="size-14 fill-red-100" xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="#000000" viewBox="0 0 256 256"><path d="M240,114H210.49l-43.9-43.9a13.94,13.94,0,0,0-9.9-4.1H44.28a14,14,0,0,0-11.65,6.23L3,116.67A6,6,0,0,0,2,120v48a14,14,0,0,0,14,14H34.6a30,30,0,0,0,58.8,0h69.2a30,30,0,0,0,58.8,0H240a14,14,0,0,0,14-14V128A14,14,0,0,0,240,114ZM42.62,78.89A2,2,0,0,1,44.28,78H156.69a2,2,0,0,1,1.41.59L193.52,114H19.21ZM64,194a18,18,0,1,1,18-18A18,18,0,0,1,64,194Zm128,0a18,18,0,1,1,18-18A18,18,0,0,1,192,194Zm50-26a2,2,0,0,1-2,2H221.4a30,30,0,0,0-58.8,0H93.4a30,30,0,0,0-58.8,0H16a2,2,0,0,1-2-2V126H240a2,2,0,0,1,2,2Z"></path></svg>
+                <div class="text-zinc-100">سواری</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <input type="radio" id="2" name="hosting" value="2" class="hidden peer" required="">
+            <label for="2" class="inline-flex items-center justify-center w-full px-4 py-1 text-gray-600 rounded-lg cursor-pointer peer-checked:bg-red-100 peer-checked:bg-opacity-20 hover:text-gray-600 hover:bg-red-200 hover:bg-opacity-30">
+              <div class="text-center">
+                <svg class="size-14 fill-red-100" xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="#000000" viewBox="0 0 256 256"><path d="M253.57,117.78l-14-35a13.93,13.93,0,0,0-13-8.8H190V64a6,6,0,0,0-6-6H32A14,14,0,0,0,18,72V184a14,14,0,0,0,14,14H50.6a30,30,0,0,0,58.8,0h53.2a30,30,0,0,0,58.8,0H240a14,14,0,0,0,14-14V120A6,6,0,0,0,253.57,117.78ZM190,86h36.58a2,2,0,0,1,1.86,1.26L239.14,114H190ZM30,72a2,2,0,0,1,2-2H178v68H30ZM80,210a18,18,0,1,1,18-18A18,18,0,0,1,80,210Zm82.6-24H109.4a30,30,0,0,0-58.8,0H32a2,2,0,0,1-2-2V150H178v15.48A30.1,30.1,0,0,0,162.6,186ZM192,210a18,18,0,1,1,18-18A18,18,0,0,1,192,210Zm50-26a2,2,0,0,1-2,2H221.4A30.05,30.05,0,0,0,192,162c-.67,0-1.34,0-2,.07V126h52Z"></path></svg>
+                <div class="text-zinc-100">کامیون</div>
+              </div>
+            </label>
+          </li>
+          <li>
+            <input type="radio" id="3" name="hosting" value="3" class="hidden peer" required="">
+            <label for="3" class="inline-flex items-center justify-center w-full px-4 py-1 text-gray-600 rounded-lg cursor-pointer peer-checked:bg-red-100 peer-checked:bg-opacity-20 hover:text-gray-600 hover:bg-red-200 hover:bg-opacity-30">
+              <div class="text-center">
+                <svg class="size-14 fill-red-100" xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="#000000" viewBox="0 0 256 256"><path d="M238,166.12V134a13.91,13.91,0,0,0-10-13.41l-.15,0L190,110.24V72a6,6,0,0,0-12,0v35l-28-7.58V54h10a6,6,0,0,0,0-12H40a6,6,0,0,0,0,12H50V90H40a6,6,0,0,0,0,12H68a70.08,70.08,0,0,1,70,70v12a6,6,0,0,0,6,6h34.06A34,34,0,1,0,238,166.12ZM68,90H62V54h76v75.34A82,82,0,0,0,68,90Zm82,82V111.84l74.63,20.21A2,2,0,0,1,226,134V157a34,34,0,0,0-46.5,21H150Zm62,38a22,22,0,1,1,22-22A22,22,0,0,1,212,210ZM68,122a50,50,0,1,0,50,50A50.06,50.06,0,0,0,68,122Zm0,88a38,38,0,1,1,38-38A38,38,0,0,1,68,210Zm10-38a10,10,0,1,1-10-10A10,10,0,0,1,78,172Z"></path></svg>
+                <div class="text-zinc-100">کشاورزی</div>
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-lg w-full lg:w-96 p-2 relative">
+        <div class="flex md:gap-x-5 relative">
+          <div class="w-1/2">
+            <input type="radio" id="4" name="form" value="4" class="hidden peer" required="" checked>
+            <label for="4" class="inline-flex items-center justify-center w-full px-0 py-2 text-sm md:text-base text-gray-400 cursor-pointer hover:text-gray-600 peer-checked:text-gray-600 peer-checked:border-b border-red-500 transition-all duration-300">
+             بر اساس سایز تایر
+            </label>
+            <div class="flex-col w-full items-center justify-center mt-10 gap-y-5 absolute top-6 hidden peer-checked:flex">
+              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                <option value="ppp">پهنای تایر</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+              </select>
+              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                <option value="ppp">نسب منظر</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+              </select>
+              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                <option value="ppp">قطر رینگ</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+              </select>
+              <a href="" class="bg-red-500 w-11/12 text-center text-white py-3 rounded-xl hover:bg-red-400 mt-5">
+                جستجو
+              </a>
+              <div class="sm:w-10/12">
+                <img src="{% static 'assets/image/tireSelcet.png' %}" class="mb-2 opacity-45" alt="">
+                <p id="textTire" class="absolute bottom-5 sm:bottom-12 text-2xl left-1/2 flex font-semibold text-zinc-500">
+                  <span>
+                    205
+                  </span>
+                  <span>
+                    /
+                  </span>
+                  <span>
+                    55
+                  </span>
+                  <span>
+                    R
+                  </span>
+                  <span>
+                    16
+                  </span>
+                  <span>
+                    94R
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-1/2">
+            <input type="radio" id="5" name="form" value="5" class="hidden peer" required="">
+            <label for="5" class="inline-flex items-center justify-center w-full px-0 py-2 text-sm md:text-base text-gray-400 cursor-pointer hover:text-gray-600 peer-checked:text-gray-600 peer-checked:border-b border-red-500 transition-all duration-300">
+              بر اساس نوع خودرو
+            </label>
+            <div class="flex-col w-full items-center justify-center mt-10 gap-y-5 absolute top-6 left-0 hidden peer-checked:flex">
+              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                <option value="ppp">انتخاب برند</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+              </select>
+              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                <option value="ppp">انتخاب مدل</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+              </select>
+              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                <option value="ppp">انتخاب تیپ</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+              </select>
+              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                <option value="ppp">انتخاب سال</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+              </select>
+              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                <option value="ppp">انتخاب سایز</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+              </select>
+              <a href="" class="bg-red-500 w-11/12 text-center text-white py-3 rounded-xl hover:bg-red-400 mt-5">
+                جستجو
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+
+
+
+<!-- tire script -->
+<script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
+
+  <script>
+    const textTire = document.getElementById('textTire')
+    const rotate = new CircleType(textTire).radius(110)
+  </script>

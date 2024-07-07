@@ -24,7 +24,6 @@ SECRET_KEY = 'django-insecure-+9u1y!oe!v3a!201x_^nngz4cd#*e1k5&5_c(5*fyck1d#%tw5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -46,6 +45,8 @@ INSTALLED_APPS = [
     'about',
     'contact',
     'django_jalali',
+    'rules',
+    'store',
 
 
 
@@ -154,6 +155,7 @@ MEDIA_URL = 'media/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGOUT_REDIRECT_URL = '/'
 
 #LOGIN_URL = 'nafis_login'
 

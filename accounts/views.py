@@ -22,7 +22,15 @@ def user_is_not_admin(user):
 
 class UserLoginView(auth_views.LoginView):
     template_name = 'accounts/loginindex.html'
-    authentication_form =LoginForm
+    authentication_form = LoginForm
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('user_dashboard')
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse_lazy('user_dashboard')
 
     def get_success_url(self):
         return reverse_lazy('user_dashboard')
@@ -30,6 +38,15 @@ class UserLoginView(auth_views.LoginView):
 class AdminLoginView(auth_views.LoginView):
     template_name = 'accounts/loginindex.html'
     authentication_form = LoginForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        from cart.models import CartItem  # واردات داخل تابع
+        if self.request.user.is_authenticated:
+            context['countcart'] = CartItem.objects.filter(cart__user=self.request.user).count()
+        else:
+            context['countcart'] = 0
+        return context
 
     def get_success_url(self):
         return reverse_lazy('admin_dashboard')

@@ -15,8 +15,8 @@ urlpatterns = [
     path('adminpage/login/', AdminLoginView.as_view(), name='admin_login'),
     path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),
     path('dashboard/', user_dashboard, name='user_dashboard'),
-    #path('logout/', LogoutView.as_view(), name='logout'),
-    path('logout/', logout_user, name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    #path('logout/', logout_user, name='logout'),
     path('redirect/', dashboard_redirect, name='dashboard_redirect'),
 ]
 

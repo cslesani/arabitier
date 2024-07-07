@@ -26,9 +26,20 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('cart/', include('cart.urls')),
     path('adminpanel/', include('adminpanel.urls')),
+    path('userpanel/', include('userpanel.urls')),
     path('acbout/', include('about.urls')),
     path('contact/', include('contact.urls')),
+    path('rules/', include('rules.urls')),
+    path('store/', include('store.urls')),
+
+
 
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'nafis.views.custom_page_not_found_view'
