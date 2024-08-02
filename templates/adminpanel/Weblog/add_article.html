@@ -1,0 +1,136 @@
+{% extends 'adminpanel/baseadmin.html' %}
+{% load static %}
+{% block add_article %}
+ <main class="flex-grow p-6">
+                <!-- Page Title Start -->
+         <form method="post" enctype="multipart/form-data">
+             {% csrf_token %}
+                <div class="flex justify-between items-center mb-6">
+                    <h4 class="text-slate-900 dark:text-slate-200 text-lg font-medium">اضافه کردن مقاله</h4>
+
+                    <div class="md:flex hidden items-center gap-2.5 text-sm font-semibold">
+                        <div class="flex items-center gap-2">
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">داشبورد</a>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <i class="mgc_right_line text-lg flex-shrink-0 text-slate-400 rtl:rotate-180"></i>
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">مقاله</a>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <i class="mgc_right_line text-lg flex-shrink-0 text-slate-400 rtl:rotate-180"></i>
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400" aria-current="page">اضافه کردن مقاله</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Page Title End -->
+
+                <div class="grid lg:grid-cols-4 gap-6">
+                    <div class="col-span-1 flex flex-col gap-6">
+                        <div class="card p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="card-title">اضافه کردن تصویر مقاله</h4>
+                                <div class="inline-flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-700 w-9 h-9">
+                                    <i class="mgc_add_line"></i>
+                                </div>
+                            </div>
+
+
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple="multiple" name="{{ form.article_image.name }}">
+                                </div>
+                                <div class="dz-message needsclick w-full">
+                                    <i class="mgc_pic_2_line text-8xl"></i>
+                                </div>
+
+
+                            <div class="">
+
+                            </div>
+                        </div>
+                         <div class="card p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <p class="card-title">ذخیره اطلاعات</p>
+
+                            </div>
+                            <div class="flex justify-end gap-3">
+                                <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-red-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none">
+                                    لغو
+                                </button>
+                                <button type="submit" class="inline-flex items-center rounded-md border border-transparent bg-green-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none">
+                                    ذخیره
+                                </button>
+                            </div>
+                              {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                        <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                    <div class="lg:col-span-3 space-y-6">
+                        <div class="card p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <p class="card-title">اطلاعات عمومی مقاله</p>
+                                <div class="inline-flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-700 w-9 h-9">
+                                    <i class="mgc_transfer_line"></i>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col gap-3">
+                                <div class="grid md:grid-cols-2 gap-3">
+                                    <div class="">
+                                        <label for="id_title" class="mb-2 block">نام مقاله</label>
+                                        <input  class="form-input" aria-label="نام مقاله" class="form-control" id="id_title" name="{{ form.article_title.name }}" placeholder="نام مقاله" type="text" value="{{ form.article_title.value }}"/></input>
+                                    </div>
+                                     <div class="">
+                                        <label for="id_author" class="mb-2 block">نام مقاله به انگلیسی</label>
+                                        <input class="form-input"  aria-label="نام مقاله به انگلیسی" class="form-control" id="id_author"  placeholder="نویسنده" type="text" value="{{ form.article_author.value }}"/></input>
+                                    </div>
+
+                                    <div class="">
+                                        <label for="id_author" class="mb-2 block">نویسنده</label>
+                                        <input class="form-input"  aria-label="نویسنده" class="form-control" id="id_author" name="{{ form.article_author.name }}" placeholder="نویسنده" type="text" value="{{ form.article_author.value }}"/></input>
+                                    </div>
+
+                                    <div class="">
+                                        <label for="id_author" class="mb-2 block">برچسب</label>
+                                        <input class="form-input"  aria-label="برچسب" class="form-control" id="id_author" name="" placeholder="نویسنده" type="text" value="{{ form.article_author.value }}"/></input>
+                                    </div>
+                                    <div class="">
+                                        <label for="id_author" class="mb-2 block">دسته بندی</label>
+                                        <select class="form-input form-control" aria-label="دسته بندی" id="id_author" name="author" placeholder="نویسنده">
+                                            <option value="" disabled selected>انتخاب دسته</option>
+                                            <option value="category1" {% if form.article_author.value == 'category1' %}selected{% endif %}>دسته ۱</option>
+                                            <option value="category1" {% if form.article_author.value == 'category1' %}selected{% endif %}>دسته ۲</option>
+                                            <option value="category1" {% if form.article_author.value == 'category1' %}selected{% endif %}>دسته  ۳</option>
+                                            <!-- افزودن گزینه‌های بیشتر به اینجا -->
+                                        </select>
+                                    </div>
+
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_country"> تاریخ</label>
+                                        <input class="form-input" aria-label="تاریخ" class="form-control" id="ecommerce-product_country" name="{{ form.article_date.name }}" placeholder="تاریخ" type="date" value="{{ form.article_date.value }}"/>
+                                    </div>
+
+                                </div>
+                        </div>
+                        <div class=" space-y-6">
+                            <div class="">
+                                 <label for="id_article_message" class="mb-2 block">متن مقاله <span class="text-red-500">*</span></label>
+                                <textarea id="id_article_message" class="form-input" rows="8" aria-label="متن مقاله" class="form-control" id="id_content" name="{{ form.article_message.name }}" placeholder="متن مقاله" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                </div>
+         </form>
+ </main>
+{% endblock %}

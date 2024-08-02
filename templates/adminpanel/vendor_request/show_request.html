@@ -1,0 +1,158 @@
+{% extends 'adminpanel/baseadmin.html' %}
+{% load static %}
+{% block show_request %}
+<style>
+    .image-popup {
+    position: relative;
+    display: inline-block;
+    }
+
+    .image-popup img {
+        width: 150px; /* اندازه پیش‌فرض تصویر */
+        height: auto;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .image-popup img:hover {
+        opacity: 0.7;
+    }
+</style>
+ <main class="flex-grow p-6">
+                <!-- Page Title Start -->
+                <div class="flex justify-between items-center mb-6">
+                    <h4 class="text-slate-900 dark:text-slate-200 text-lg font-medium">بررسی درخواستها</h4>
+
+                    <div class="md:flex hidden items-center gap-2.5 text-sm font-semibold">
+                        <div class="flex items-center gap-2">
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">داشبورد</a>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <i class="mgc_right_line text-lg flex-shrink-0 text-slate-400 rtl:rotate-180"></i>
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">فروشنده ها</a>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <i class="mgc_right_line text-lg flex-shrink-0 text-slate-400 rtl:rotate-180"></i>
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400" aria-current="page">بررسی درخواستها</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Page Title End -->
+
+
+
+
+
+                <div class="mt-6">
+                    <div class="card">
+                        <div class="flex flex-wrap justify-between items-center gap-2 p-6">
+                            <a href="javascript:void(0);" class="btn bg-danger/20 text-sm font-medium text-danger hover:text-white hover:bg-danger"><i class="mgc_add_circle_line me-3"></i> افزودن مشتریان</a>
+                            <div class="flex flex-wrap gap-2">
+                                <button type="button" class="btn bg-success/25 text-lg font-medium text-success hover:text-white hover:bg-success"><i class="mgc_settings_3_line"></i></button>
+                                <button type="button" class="btn bg-dark/25 text-sm font-medium text-slate-900 dark:text-slate-200/70 hover:text-white hover:bg-dark/90">وارد کردن</button>
+                                <button type="button" class="btn bg-dark/25 text-sm font-medium text-slate-900 dark:text-slate-200/70 hover:text-white hover:bg-dark/90">خروجی</button>
+                            </div>
+                        </div>
+                        <div class="relative overflow-x-auto">
+                            <table class="w-full divide-y divide-gray-300 dark:divide-gray-700">
+                                <thead class="bg-slate-300 bg-opacity-20 border-t dark:bg-slate-800 divide-gray-300 dark:border-gray-700">
+                                    <tr>
+                                        <th scope="col" class="py-3.5 ps-4 pe-3 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">ردیف</th>
+                                        <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">نام کامل</th>
+                                        <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">شماره تلفن</th>
+                                        <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">تاریخ تولد</th>
+                                        <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">نام کسب و کار</th>
+                                        <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">عکس محل کسب و کار</th>
+                                        <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">عکس مجوز کسب و کار</th>
+                                        <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">عکس کارت ملی</th>
+                                         <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">عملیات روی درخواست</th>
+                                        <th scope="col" class="px-3 py-3.5 text-right text-sm font-semibold text-gray-900 dark:text-gray-200">وضعیت</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700 ">
+                                  {% for request in requests %}
+                                    <tr>
+                                        <td class="whitespace-nowrap py-4 ps-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200"><b>{{ request.id }}</b></td>
+                                         <td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">{{ request.full_name }}</td>
+                                        <td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">{{ request.phone_number }}</td>
+
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                            <div class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-dark/80 text-white">{{ request.date_of_birth }}</div>
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">{{ request.business_name }}</td>
+                                         <td class="border border-gray-300 px-3 py-2">
+                                                {% if request.shop_photo %}
+                                                    <div class="image-popup">
+                                                        <img  src="{{ request.shop_photo.url }}" alt="Shop Photo" onclick="openImagePopup('{{ request.shop_photo.url }}')">
+                                                    </div>
+                                                {% else %}
+                                                    No image
+                                                {% endif %}
+                                            </td>
+                                       <td class="border border-gray-300 px-3 py-2">
+                                            {% if request.business_license %}
+                                                <div class="image-popup">
+                                                    <img src="{{ request.business_license.url }}" alt="Business License" onclick="openImagePopup('{{ request.business_license.url }}')">
+                                                </div>
+                                            {% else %}
+                                                No image
+                                            {% endif %}
+                                        </td>
+
+                                        <div id="image-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center;">
+                                            <img id="popup-image" src="" style="max-width: 90%; max-height: 90%; margin: auto;">
+                                        </div>
+                                        <td class="border border-gray-300 px-3 py-2">
+                                            {% if request.national_id_card %}
+                                                <div class="image-popup">
+                                                    <img src="{{ request.national_id_card.url }}" alt="National ID Card" onclick="openImagePopup('{{ request.national_id_card.url }}')">
+                                                </div>
+                                            {% else %}
+                                                No image
+                                            {% endif %}
+                                        </td>
+                                        <td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
+                                           <form action="{% url 'adminpanel:approve-request' request.id %}" method="post" style="display:inline;">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-success">تایید</button>
+                                            </form>
+                                            |
+                                            <form action="{% url 'adminpanel:reject-request' request.id %}" method="post" style="display:inline;">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger">رد</button>
+                                            </form>
+                                        </td>
+                                    <td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">{{ request.get_status_display }}</td>
+
+                                    </tr>
+                                  {% empty %}
+                                    <tr>
+                                        <td colspan="8" class="text-center border border-gray-300 px-4 py-2">هیچ درخواستی موجود نیست</td>
+                                    </tr>
+                                {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            <script>
+                function openImagePopup(src) {
+                    var popup = document.getElementById('image-popup');
+                    var popupImage = document.getElementById('popup-image');
+                    popupImage.src = src;
+                    popup.style.display = 'flex';
+                }
+
+                document.getElementById('image-popup').addEventListener('click', function() {
+                    this.style.display = 'none';
+                });
+            </script>
+{% endblock %}
+

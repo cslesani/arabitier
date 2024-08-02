@@ -1,14 +1,40 @@
 # accounts/views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 from .forms import LoginForm
 
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.shortcuts import render, redirect
+
+from django.contrib.auth.models import User
+from django.contrib import messages
+from .forms import SignUpForm
 from django.core.exceptions import PermissionDenied
+
+# accounts/views.py
+
+
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "ثبت نام با موفقیت انجام شد!")
+            return redirect('user_login')
+        else:
+            messages.error(request, "لطفاً خطاهای زیر را اصلاح کنید")
+    else:
+        form = SignUpForm()
+
+    return render(request, 'accounts/signup.html', {'form': form})
+
+
+
 
 def user_is_admin(user):
     if user.is_authenticated and user.is_superuser:
@@ -59,15 +85,19 @@ def admin_dashboard(request):
 @login_required
 @user_passes_test(user_is_not_admin)
 def user_dashboard(request):
-    return render(request, 'userpanel/useindex.html')
+    from cart.models import CartItem  # واردات داخل تابع
+    countcart = CartItem.objects.filter(cart__user=request.user).count()
+    return render(request, 'userpanel/useindex.html',{'countcart':countcart})
 
 def dashboard_redirect(request):
+
     if request.user.is_superuser:
         return redirect('admin_dashboard')
     else:
         return redirect('user_dashboard')
 
 def logout_user(request):
+    logout(request)
     return redirect('main-view')
 
 """def Login_view(request):

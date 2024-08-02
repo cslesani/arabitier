@@ -1,171 +1,195 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فرم محصول</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-</head>
-<body>
-    <div class="container mx-auto p-4">
-        <form method="post" id="productForm" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label for="product_name" class="mb-2 ml-1 text-xs opacity-80 flex">
-                    نام محصول
-                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                    </svg>
-                </label>
-                    <input type="text" name="product_name" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
+{% extends 'adminpanel/baseadmin.html' %}
+{% load static %}
+{% block add_product %}
+ <main class="flex-grow p-6">
+                <!-- Page Title Start -->
+         <form method="post" enctype="multipart/form-data">
+             {% csrf_token %}
+                <div class="flex justify-between items-center mb-6">
+                    <h4 class="text-slate-900 dark:text-slate-200 text-lg font-medium">اضافه کردن محصول</h4>
+
+                    <div class="md:flex hidden items-center gap-2.5 text-sm font-semibold">
+                        <div class="flex items-center gap-2">
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">داشبورد</a>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <i class="mgc_right_line text-lg flex-shrink-0 text-slate-400 rtl:rotate-180"></i>
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400">محصول</a>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <i class="mgc_right_line text-lg flex-shrink-0 text-slate-400 rtl:rotate-180"></i>
+                            <a href="#" class="text-sm font-medium text-slate-700 dark:text-slate-400" aria-current="page">اضافه کردن محصول</a>
+                        </div>
+                    </div>
                 </div>
+                <!-- Page Title End -->
+
+                <div class="grid lg:grid-cols-4 gap-6">
+                    <div class="col-span-1 flex flex-col gap-6">
+                        <div class="card p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="card-title">اضافه کردن تصویر محصول</h4>
+                                <div class="inline-flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-700 w-9 h-9">
+                                    <i class="mgc_add_line"></i>
+                                </div>
+                            </div>
 
 
-                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_number" class="mb-2 ml-1 text-xs opacity-80 flex">
-                        تعداد محصول
-                    </label>
-                    <input type="text" name="product_number" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_price " class="mb-2 ml-1 text-xs opacity-80 flex">
-                        قیمت محصول
-                    </label>
-                    <input type="text" name="product_price " class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_stock " class="mb-2 ml-1 text-xs opacity-80 flex">
-                        موجودی محصول
-                    </label>
-                    <input type="text" name="product_brandname" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label for="product_Diameter " class="mb-2 ml-1 text-xs opacity-80 flex">
-                    سایز رینگ
-                </label>
-                <input type="text" name="product_Diameter" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_type" class="mb-2 ml-1 text-xs opacity-80 flex">
-                        نوع محصول
-                    </label>
-                    <input type="text" name="product_type" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_view" class="mb-2 ml-1 text-xs opacity-80 flex">
-                        رخ محصول
-                    </label>
-                    <input type="text" name="product_view" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label for="product_width " class="mb-2 ml-1 text-xs opacity-80 flex">
-                    عرض لاستیک
-                </label>
-                <input type="text" name="product_width " class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-            </div>
-             <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_brandname" class="mb-2 ml-1 text-xs opacity-80 flex">
-                        برند محصول
-                    </label>
-                    <input type="text" name="product_brandname" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                 </div>
-                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_contry " class="mb-2 ml-1 text-xs opacity-80 flex">
-                        کشور سازنده محصول
-                    </label>
-                    <input type="text" name="product_contry " class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-             </div>
-            <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_brandname" class="mb-2 ml-1 text-xs opacity-80 flex">
-                        برند محصول
-                    </label>
-                    <input type="text" name="product_brandname" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_layer " class="mb-2 ml-1 text-xs opacity-80 flex">
-                        لایه لاستیک
-                    </label>
-                    <input type="text" name="product_layer " class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-            </div>
-             <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_speed " class="mb-2 ml-1 text-xs opacity-80 flex">
-                        سرعت تحمل لاستیک
-                    </label>
-                    <input type="text" name="product_speed " class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_weight " class="mb-2 ml-1 text-xs opacity-80 flex">
-                        وزن تحمل لاستیک
-                    </label>
-                    <input type="text" name="product_weight " class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-             </div>
-             <div class="flex flex-wrap -mx-3 mb-4">
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label for="product_discountpercent_this" class="mb-2 ml-1 text-xs opacity-80 flex">
-                        تخفیف این محصول
-                    </label>
-                    <input type="text" name="product_discountpercent_this" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label for="product_profitpercent " class="mb-2 ml-1 text-xs opacity-80 flex">
-                    سود محصول
-                </label>
-                <input type="text" name="product_profitpercent " class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-                </div>
-             </div>
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple="multiple">
+                                </div>
+                                <div class="dz-message needsclick w-full">
+                                    <i class="mgc_pic_2_line text-8xl"></i>
+                                </div>
 
 
-            <div class="md:w-1/2">
-                <label for="product_image" class="mb-2 ml-1 text-xs opacity-80 flex">
-                    تصویر محصول
-                </label>
-                <input type="file" name="product_image" class="text-sm block w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-gray-700 outline-none transition-all focus:border-red-300">
-            </div>
+                            <div class="">
 
-            <div class="mt-4">
-                <button type="submit" id="saveProductBtn" class="bg-red-500 text-white px-4 py-2 rounded-lg">ثبت</button>
-            </div>
-        </form>
-    </div>
-<!-- templates/product_form_partial.html -->
+                            </div>
+                        </div>
+                         <div class="card p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <p class="card-title">ذخیره اطلاعات</p>
+
+                            </div>
+                            <div class="flex justify-end gap-3">
+                                <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-red-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none">
+                                    لغو
+                                </button>
+                                <button type="submit" class="inline-flex items-center rounded-md border border-transparent bg-green-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none">
+                                    ذخیره
+                                </button>
+                            </div>
+                              {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                        <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                    <div class="lg:col-span-3 space-y-6">
+                        <div class="card p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <p class="card-title">اطلاعات عمومی محصول</p>
+                                <div class="inline-flex items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-700 w-9 h-9">
+                                    <i class="mgc_transfer_line"></i>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col gap-3">
+                                <div class="grid md:grid-cols-2 gap-3">
+                                    <div class="">
+                                        <label for="ecommerce-product_name" class="mb-2 block">نام محصول</label>
+                                        <input  class="form-input" aria-label="نام محصول" class="form-control" id="ecommerce-product_name" name="{{ form.product_name.name }}" placeholder="نام محصول" type="text" value="{{ form.product_name.value }}"></input>
+                                    </div>
+
+                                    <div class="">
+                                        <label for="ecommerce-product_brandname" class="mb-2 block">برند</label>
+                                        <input class="form-input"  aria-label="برند محصول" class="form-control" id="ecommerce-product_brandname" name="{{ form.product_brandname.name }}" placeholder="برند" type="text" value="{{ form.product_brandname.value }}"></input>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_country"> کشور سازنده (محل ساخت)</label>
+                                        <input class="form-input" aria-label="کشور سازنده محصول" class="form-control" id="ecommerce-product_country" name="{{ form.product_contry.name }}" placeholder="کشور سازنده" type="text" value="{{ form.product_contry.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_number">تعداد محصول</label>
+                                        <input class="form-input" aria-label="تعداد محصول" class="form-control" id="ecommerce-product_number" name="{{ form.product_number.name }}" placeholder="تعداد محصول" type="number" value="{{ form.product_number.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_type"> نوع محصول (مناسب خودروهای)</label>
+                                        <input class="form-input" aria-label="نوع محصول" class="form-control" id="ecommerce-product_type" name="{{ form.product_type.name }}" placeholder="نوع محصول" type="text" value="{{ form.product_type.value }}"/>
+
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_stock">موجودی محصول</label>
+                                        <input class="form-input" aria-label="موجودی محصول" class="form-control" id="ecommerce-product_stock" name="{{ form.product_stock.name }}" placeholder="موجودی محصول" type="number" value="{{ form.product_stock.value }}"/>
+                                    </div>
+
+                                     <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_view">فاق</label>
+                                        <input  class="form-input" aria-label="رخ محصول (فاق)" class="form-control" id="ecommerce-product_view" name="{{ form.product_view.name }}" placeholder="بازدید محصول" type="number" value="{{ form.product_view.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_width"> عرض محصول  (پهنا)</label>
+                                        <input class="form-input" aria-label="عرض محصول" class="form-control" id="ecommerce-product_width" name="{{ form.product_width.name }}" placeholder="عرض محصول" type="number" value="{{ form.product_width.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_diameter"> قطر محصول (رینگ)</label>
+                                        <input class="form-input" aria-label="قطر محصول" class="form-control" id="ecommerce-product_diameter" name="{{ form.product_Diameter.name }}" placeholder="قطر محصول" type="number" value="{{ form.product_Diameter.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_layer">مصرف سوخت</label>
+                                        <input  class="form-input" aria-label="لایه محصول" class="form-control" id="ecommerce-product_layer" name="{{ form.product_layer.name }}" placeholder="لایه محصول" type="number" value="{{ form.product_layer.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_weight">چنگ زنی در شرایط خیس</label>
+                                        <input class="form-input" aria-label="وزن محصول" class="form-control" id="ecommerce-product_weight" name="{{ form.product_weight.name }}" placeholder="وزن محصول" type="number" value="{{ form.product_weight.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_speed">میزان صدا</label>
+                                        <input class="form-input" aria-label="سرعت محصول" class="form-control" id="ecommerce-product_speed" name="{{ form.product_speed.name }}" placeholder="سرعت محصول" type="number" value="{{ form.product_speed.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_car_type">نوع خودرو</label>
+                                        <input class="form-input" aria-label="نوع خودرو" class="form-control" id="ecommerce-product_car_type" name="{{ form.product_car_type.name }}" placeholder="نوع خودرو" type="text" value="{{ form.product_car_type.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_model">مدل محصول</label>
+                                        <input class="form-input" aria-label="مدل محصول" class="form-control" id="ecommerce-product_model" name="{{ form.product_model.name }}" placeholder="مدل خودرو" type="text" value="{{ form.product_model.value }}"/>
+                                    </div>
+
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_garanty_year">میزان گارانتی</label>
+                                        <input class="form-input" aria-label="میزان گارانتی" class="form-control" id="ecommerce-product_garanty_year" name="{{ form.product_garanty_year.name }}" placeholder="قطر محصول" type="number" value="{{ form.product_garanty_year.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_create_year">سال ساخت</label>
+                                        <input class="form-input" aria-label="سال ساخت" class="form-control" id="ecommerce-product_layer" name="{{ form.product_create_year.name }}" placeholder="سال ساخت" type="number" value="{{ form.product_create_year.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <!--label class="form-label" for="ecommerce-product_discount_price">قیمت تخفیف محصول</label-->
+                                        <input aria-label="قیمت تخفیف محصول" class="form-control" id="ecommerce-product_discount_price" name="{{ form.product_discount_price.name }}" placeholder="قیمت تخفیف محصول" type="hidden" value="{{ form.product_discount_price.value }}"/>
+                                    </div>
+                                    <div class="">
+                                      <!--label class="form-label" for="ecommerce-product_price_final">قیمت نهایی محصول</label-->
+                                        <input aria-label="قیمت نهایی محصول" class="form-control" id="ecommerce-product_price_final" name="{{ form.product_price_final.name }}" placeholder="قیمت نهایی محصول" type="hidden" value="{{ form.product_price_final.value }}"/>
+                                    </div>
+
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_price">قیمت محصول</label>
+                                        <input  class="form-input" aria-label="قیمت محصول" class="form-control" id="ecommerce-product_price" name="{{ form.product_price.name }}" placeholder="قیمت محصول" type="number" value="{{ form.product_price.value }}"/>
+                                    </div>
+
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_discountpercent_this">درصد تخفیف این محصول</label>
+                                        <input  class="form-input" aria-label="درصد تخفیف این محصول" class="form-control" id="ecommerce-product_discountpercent_this" name="{{ form.product_discountpercent_this.name }}" placeholder="درصد تخفیف این محصول" type="number" value="{{ form.product_discountpercent_this.value }}"/>
+                                    </div>
+                                    <div class="">
+                                        <label class="mb-2 block" for="ecommerce-product_discountpercent_total">درصد تخفیف کل محصول</label>
+                                        <input class="form-input" aria-label="درصد تخفیف کل محصول" class="form-control" id="ecommerce-product_discountpercent_total" name="{{ form.product_discountpercent_total.name }}" placeholder="درصد تخفیف کل محصول" type="number" value="{{ form.product_discountpercent_total.value }}"/>
+                                      </div>
+
+                                      <div class="">
+                                         <label class="mb-2 block" for="ecommerce-product_profitpercent">درصد سود محصول</label>
+                                        <input class="form-input" aria-label="درصد سود محصول" class="form-control" id="ecommerce-product_profitpercent" name="{{ form.product_profitpercent.name }}" placeholder="درصد سود محصول" type="number" value="{{ form.product_profitpercent.value }}"/>
+                                      </div>
 
 
+                                </div>
 
-<script>
-    $(document).ready(function(){
-        $('#productForm').submit(function(event){
-            event.preventDefault();
-            var form = $(this)[0];
-            var formData = new FormData(form);
 
-            $.ajax({
-                type: 'POST',
-                url: '{% url "adminpanel:page_1" %}',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response){
-                    alert('محصول با موفقیت اضافه شد!');
-                },
-                error: function(response){
-                    alert('خطایی رخ داده است.');
-                }
-            });
-        });
-    });
-</script>
+                        </div>
+                    </div>
 
+
+                </div>
+                </div>
+         </form>
+ </main>
+{% endblock %}

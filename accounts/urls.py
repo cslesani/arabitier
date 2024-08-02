@@ -7,7 +7,7 @@ from .views import user_dashboard
 ]"""
 # urls.py
 from django.urls import path
-from .views import UserLoginView, AdminLoginView, admin_dashboard, user_dashboard, dashboard_redirect,logout_user
+from .views import UserLoginView, AdminLoginView, admin_dashboard, user_dashboard, dashboard_redirect,logout_user,signup
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -15,9 +15,10 @@ urlpatterns = [
     path('adminpage/login/', AdminLoginView.as_view(), name='admin_login'),
     path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),
     path('dashboard/', user_dashboard, name='user_dashboard'),
-    path('logout/', LogoutView.as_view(), name='logout'),
-    #path('logout/', logout_user, name='logout'),
+    #path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout/', logout_user, name='logout'),
     path('redirect/', dashboard_redirect, name='dashboard_redirect'),
+    path('signup/',signup , name='signup'),
 ]
 
 

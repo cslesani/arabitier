@@ -31,6 +31,9 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('rules/', include('rules.urls')),
     path('store/', include('store.urls')),
+    path('vendor/', include('vendor.urls')),
+    path('adminlogin/', include('adminpanellogin.urls')),
+
 
 
 

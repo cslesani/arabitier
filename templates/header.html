@@ -15,7 +15,6 @@
 
 
 </head>
-
 <body class="bg-[#fcfcfc]">
   <!-- header -->
   <header>
@@ -30,11 +29,7 @@
             <!-- LOGO -->
             <div class="hidden md:block z-0">
               <a href=''>
-                <img
-                  alt=""
-                  class="w-44 text-red-700"
-                  src="{% static 'assets/image/logo2.PNG' %}"
-                />
+                <img alt="" class="w-44 text-red-700" src="{% static 'assets/image/logo2.PNG' %}"/>
               </a>
             </div>
             <!-- Search Box -->
@@ -429,7 +424,8 @@
                 </div>
               </div>
               <div>
-                <a class="group relative" href="{%  url 'main-view' %}">
+                <a class="group relative"  href="{%  url 'main-view' %}"
+                >
                   <div class="p-2 pt-0 text-sm text-zinc-700">
                     صفحه اصلی
                   </div>
@@ -453,6 +449,7 @@
                   </div>
                 </a>
               </div>
+
               <div>
                 <a class="group relative" href="{% url 'contact' %}">
                   <div class="p-2 pt-0 text-sm text-zinc-700 flex items-center gap-x-1">
@@ -491,38 +488,24 @@
                     </div>
                   </div>
                 </a>
-                <div class="absolute top-full hidden group-hover:block bg-white rounded-lg drop-shadow-xl w-56 z-50 p-2 text-sm text-zinc-600">
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./404.html">
-                    404
-                  </a>
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./blog.html">
-                    بلاگ
-                  </a>
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./blog(single).html">
-                    بلاگ تکی
-                  </a>
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./cart.html">
-                    سبد خرید
-                  </a>
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./category-index.html">
-                   دسته بندی
-                  </a>
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./checkout.html">
-                    پرداخت
-                  </a>
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./login-register.html">
-                    ورود یا ثبت نام
-                  </a>
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./profile.html">
-                    پروفایل کاربر
-                  </a>
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./search.html">
-                    جستجو محصولات
-                  </a>
-                  <a class="block hover:text-zinc-800 hover:bg-zinc-100 rounded-md transition p-2 my-1" href="./single-product.html">
-                    جزئیات محصول
-                  </a>
-                </div>
+
+              </div>
+                 <div>
+                <a class="group relative " href="{% url 'seller_request' %}">
+                  <div class="p-2 pt-0 text-sm text-zinc-700 flex items-center gap-x-1">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="red" viewBox="0 0 256 256"><path d="M229.19,213c-15.81-27.32-40.63-46.49-69.47-54.62a70,70,0,1,0-63.44,0C67.44,166.5,42.62,185.67,26.81,213a6,6,0,1,0,10.38,6C56.4,185.81,90.34,166,128,166s71.6,19.81,90.81,53a6,6,0,1,0,10.38-6ZM70,96a58,58,0,1,1,58,58A58.07,58.07,0,0,1,70,96Z"></path></svg>
+                    </span>
+
+                    درخواست همکاری
+                  </div>
+                  <div class="absolute bottom-0 flex w-full justify-center">
+                    <div
+                      class="left-0 h-[1px] animate-border-width-reverse rounded-full bg-gradient-to-r from-red-400 to-red-400 transition-all duration-200 group-hover:animate-border-width">
+                    </div>
+                  </div>
+                </a>
+              </div>
               </div>
             </div>
           </div>
@@ -537,7 +520,7 @@
             class="mb-6 flex items-center justify-between gap-x-4 border-b border-gray-100 pb-5">
             <!-- Logo -->
             <div>
-              <a href=''>
+              <a >
                 <img
                   alt=""
                   class="h-10 w-full rounded-lg"
@@ -560,7 +543,7 @@
           <div class="overflow-y-auto">
             <ul class="space-y-2">
               <li>
-                <a class='flex items-center justify-between rounded-lg px-4 py-3 text-zinc-700 hover:text-red-500 hover:bg-gray-100 transition' href=''>
+                <a class='flex items-center justify-between rounded-lg px-4 py-3 text-zinc-700 hover:text-red-500 hover:bg-gray-100 transition' href="{%  url 'main-view' %}">
                   <span class="flex items-center gap-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4d4d4d" viewBox="0 0 256 256"><path d="M217.47,105.24l-80-75.5-.09-.08a13.94,13.94,0,0,0-18.83,0l-.09.08-80,75.5A14,14,0,0,0,34,115.55V208a14,14,0,0,0,14,14H96a14,14,0,0,0,14-14V160a2,2,0,0,1,2-2h32a2,2,0,0,1,2,2v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V115.55A14,14,0,0,0,217.47,105.24ZM210,208a2,2,0,0,1-2,2H160a2,2,0,0,1-2-2V160a14,14,0,0,0-14-14H112a14,14,0,0,0-14,14v48a2,2,0,0,1-2,2H48a2,2,0,0,1-2-2V115.55a2,2,0,0,1,.65-1.48l.09-.08,79.94-75.48a2,2,0,0,1,2.63,0L209.26,114l.08.08a2,2,0,0,1,.66,1.48Z"></path></svg>
                     <span class="text-sm">صفحه اصلی</span>
@@ -568,7 +551,7 @@
                 </a>
               </li>
               <li>
-                <a class='flex items-center justify-between rounded-lg px-4 py-3 text-zinc-700 hover:text-red-500 hover:bg-gray-100 transition' href=''>
+                <a class='flex items-center justify-between rounded-lg px-4 py-3 text-zinc-700 hover:text-red-500 hover:bg-gray-100 transition' href="{% url 'contact' %}">
                   <span class="flex items-center gap-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4d4d4d" viewBox="0 0 256 256"><path d="M221.59,160.3l-47.24-21.17a14,14,0,0,0-13.28,1.22,4.81,4.81,0,0,0-.56.42l-24.69,21a1.88,1.88,0,0,1-1.68.06c-15.87-7.66-32.31-24-40-39.65a1.91,1.91,0,0,1,0-1.68l21.07-25a6.13,6.13,0,0,0,.42-.58,14,14,0,0,0,1.12-13.27L95.73,34.49a14,14,0,0,0-14.56-8.38A54.24,54.24,0,0,0,34,80c0,78.3,63.7,142,142,142a54.25,54.25,0,0,0,53.89-47.17A14,14,0,0,0,221.59,160.3ZM176,210C104.32,210,46,151.68,46,80A42.23,42.23,0,0,1,82.67,38h.23a2,2,0,0,1,1.84,1.31l21.1,47.11a2,2,0,0,1,0,1.67L84.73,113.15a4.73,4.73,0,0,0-.43.57,14,14,0,0,0-.91,13.73c8.87,18.16,27.17,36.32,45.53,45.19a14,14,0,0,0,13.77-1c.19-.13.38-.27.56-.42l24.68-21a1.92,1.92,0,0,1,1.6-.1l47.25,21.17a2,2,0,0,1,1.21,2A42.24,42.24,0,0,1,176,210Z"></path></svg>
                     <span class="text-sm">تماس با ما</span>
@@ -576,7 +559,7 @@
                 </a>
               </li>
               <li>
-                <a class='flex items-center justify-between rounded-lg px-4 py-3 text-zinc-700 hover:text-red-500 hover:bg-gray-100 transition' href=''>
+                <a class='flex items-center justify-between rounded-lg px-4 py-3 text-zinc-700 hover:text-red-500 hover:bg-gray-100 transition' href="{% url 'about' %}">
                   <span class="flex items-center gap-x-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#4d4d4d" viewBox="0 0 256 256"><path d="M240,210H222V96a14,14,0,0,0-14-14H142V32a14,14,0,0,0-21.77-11.64l-80,53.33A14,14,0,0,0,34,85.34V210H16a6,6,0,0,0,0,12H240a6,6,0,0,0,0-12ZM208,94a2,2,0,0,1,2,2V210H142V94ZM46,85.34a2,2,0,0,1,.89-1.66l80-53.34A2,2,0,0,1,130,32V210H46ZM110,112v16a6,6,0,0,1-12,0V112a6,6,0,0,1,12,0Zm-32,0v16a6,6,0,0,1-12,0V112a6,6,0,0,1,12,0Zm0,56v16a6,6,0,0,1-12,0V168a6,6,0,0,1,12,0Zm32,0v16a6,6,0,0,1-12,0V168a6,6,0,0,1,12,0Z"></path></svg>
                     <span class="text-sm">درباره با ما</span>
@@ -898,7 +881,7 @@
         </a>
       </div>
       <div class="flex-1 group">
-        <a href="#" class="flex items-end justify-center text-center mx-auto pt-2 w-full text-red-500">
+        <a href="{%  url 'main-view' %}" class="flex items-end justify-center text-center mx-auto pt-2 w-full text-red-500">
           <span class="block pt-1 pb-1">
             <svg class="mx-auto fill-red-600" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#000000" viewBox="0 0 256 256"><path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"></path></svg>
             <span class="block text-xs py-1">صفحه اصلی</span>
@@ -916,7 +899,7 @@
         </a>
       </div>
       <div class="flex-1 group">
-        <a href="#" class="flex items-end justify-center text-center mx-auto pt-2 w-full text-gray-800 group-hover:text-red-500">
+        <a href="{% url 'view_cart' %}" class="flex items-end justify-center text-center mx-auto pt-2 w-full text-gray-800 group-hover:text-red-500">
           <span class="block pt-1 pb-1">
             <svg class="mx-auto fill-gray-800 group-hover:fill-red-600" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#000000" viewBox="0 0 256 256"><path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"></path></svg>
             <span class="block text-xs py-1">سبد خرید</span>

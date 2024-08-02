@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'django_jalali',
     'rules',
     'store',
+    'vendor',
+    'adminpanellogin'
+
 
 
 

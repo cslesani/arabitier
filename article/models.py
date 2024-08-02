@@ -6,6 +6,5 @@ class Article(models.Model):
     article_title = models.CharField(max_length=200)
     article_message = models.CharField(max_length=1000)
     article_author = models.CharField(max_length=200)
-    article = models.IntegerField(default=0)
     article_date=models.DateField()
     article_image = models.ImageField(blank=True,upload_to='article/')

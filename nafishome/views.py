@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect, get_object_or_404
-from .models import Product
 from article.models import Article
 from .forms import ProductSearchForm
+from .models import Product, Review
+from .forms import ReviewForm
 
 
 
@@ -10,6 +11,11 @@ from django.template import loader
 # Create your views here.
 
 
+def success_page(request):
+    from cart.models import CartItem
+    if request.user.is_authenticated:
+        countcart = CartItem.objects.filter(cart__user=request.user).count()
+    return render(request, 'success.html',{'countcart': countcart})
 
 
 def index(request):
@@ -67,5 +73,28 @@ def index(request):
     return render(request, 'index.html', {'data': data, 'articleindexdata': articleindexdata, 'countcart': countcart,'form': form})
 
 def product_detail(request, product_id):
+    from cart.models import CartItem
+    if request.user.is_authenticated:
+        countcart = CartItem.objects.filter(cart__user=request.user).count()
     product = get_object_or_404(Product, id=product_id)
-    return render(request, 'product_detail.html', {'product': product})
+    reviews = product.reviews.all()
+    review_count = reviews.count()
+    form = ReviewForm()
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.product = product
+            review.user = request.user
+            review.save()
+            return redirect('product_detail', product_id=product.id)
+
+    context = {
+        'countcart':countcart,
+        'product': product,
+        'reviews': reviews,
+        'review_count': review_count,
+        'form': form
+    }
+    return render(request, 'product_detail.html', context)
