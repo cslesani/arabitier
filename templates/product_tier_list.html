@@ -1,0 +1,9 @@
+{% if products %}
+    <ul>
+    {% for product in products %}
+        <li>{{ product.name }} - {{ product.product_width }} - {{ product.product_diameter }} - {{ product.product_view }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>هیچ محصولی یافت نشد.</p>
+{% endif %}

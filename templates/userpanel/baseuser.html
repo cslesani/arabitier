@@ -44,12 +44,15 @@
                 علاقه مندی ها
               </a>
             </li>
+              {% if is_seller %}
+
             <li class="px-3 py-3 group hover:bg-zinc-100 transition-all rounded-lg">
-              <a class="flex gap-x-1 items-center text-zinc-700 text-sm group-hover:text-zinc-900" href="">
+              <a class="flex gap-x-1 items-center text-zinc-700 text-sm group-hover:text-zinc-900" href="{%  url 'add_product_vendor' %}">
                 <svg class="fill-zinc-700 group-hover:fill-zinc-800" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256"><path d="M224,128A96,96,0,0,1,79.93,211.11h0L42.54,223.58a8,8,0,0,1-10.12-10.12l12.47-37.39h0A96,96,0,1,1,224,128Z" opacity="0.2"></path><path d="M181.66,106.34a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32,0L112,123.31,85.66,149.66a8,8,0,0,1-11.32-11.32l32-32a8,8,0,0,1,11.32,0L144,132.69l26.34-26.35A8,8,0,0,1,181.66,106.34ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.52a8,8,0,0,1,6.54.67A88,88,0,0,0,216,128Z"></path></svg>
-                پیغام ها
+                افزودن محصول
               </a>
             </li>
+              {% endif %}
             <li class="px-3 py-3 group hover:bg-zinc-100 transition-all rounded-lg">
               <a class="flex gap-x-1 items-center text-zinc-700 text-sm group-hover:text-zinc-900" href="{% url 'user_address' %}">
                 <svg class="fill-zinc-700 group-hover:fill-zinc-800" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256"><path d="M208,32H64a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V40A8,8,0,0,0,208,32ZM136,144a32,32,0,1,1,32-32A32,32,0,0,1,136,144Z" opacity="0.2"></path><path d="M83.19,174.4a8,8,0,0,0,11.21-1.6,52,52,0,0,1,83.2,0,8,8,0,1,0,12.8-9.6A67.88,67.88,0,0,0,163,141.51a40,40,0,1,0-53.94,0A67.88,67.88,0,0,0,81.6,163.2,8,8,0,0,0,83.19,174.4ZM112,112a24,24,0,1,1,24,24A24,24,0,0,1,112,112Zm96-88H64A16,16,0,0,0,48,40V64H32a8,8,0,0,0,0,16H48v40H32a8,8,0,0,0,0,16H48v40H32a8,8,0,0,0,0,16H48v24a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V40A16,16,0,0,0,208,24Zm0,192H64V40H208Z"></path></svg>
@@ -71,7 +74,8 @@
           </ul>
         </div>
       {%  block indexuser %}{% endblock %}
-          {% block useraddress %}{% endblock %}
+      {% block useraddress %}{% endblock %}
+      {% block useraddproduct %}{% endblock %}
 
 
       </div>

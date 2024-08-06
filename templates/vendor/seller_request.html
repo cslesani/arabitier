@@ -21,111 +21,118 @@
         <!-- SECTION DOWN -->
         <div class="grid">
             <div class="px-4 lg:px-10 my-10 mx-0 lg:mx-36">
-                <div class="px-5 md:pr-24 my-10 "  style="background-color:#f5baba; padding-top: 1%;padding-bottom: 1%;border-radius: 15px;">
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div class="md:flex gap-x-5 gap-y-5 mb-5">
-                            <div class="md:w-1/2">
-                                <label for="id_full_name" class="mb-2 ml-1 text-xs opacity-80 flex">
-                                    نام کامل
-                                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                                    </svg>
-                                </label>
-                                {{ form.full_name }}
-                            </div>
-                            <div class="md:w-1/2 mt-5 md:mt-0">
-                                <label for="id_birth_date" class="mb-2 ml-1 text-xs opacity-80 flex">
-                                    تاریخ تولد
-                                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                                    </svg>
-                                </label>
-                                {{ form.date_of_birth }}
-                            </div>
-                        </div>
+                <div class="px-5 md:pr-24 my-10" style="background-color:#f5baba; padding-top: 1%;padding-bottom: 1%;border-radius: 15px;">
 
-                        <div class="md:flex gap-x-5 gap-y-5 mb-5">
-                            <div class="md:w-1/2">
-                                <label for="id_phone_number" class="mb-2 ml-1 text-xs opacity-80 flex">
-                                    شماره تلفن
-                                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                                    </svg>
-                                </label>
-                                {{ form.phone_number }}
-                            </div>
-                            <div class="md:w-1/2 mt-5 md:mt-0">
-                                <label for="id_business_name" class="mb-2 ml-1 text-xs opacity-80 flex">
-                                    نام کسب‌وکار
-                                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                                    </svg>
-                                </label>
-                                {{ form.business_name }}
-                            </div>
-                        </div>
-
-                        <div class="md:flex gap-x-5 gap-y-5 mb-5">
-                            <div class="md:w-1/2">
-                                <label for="id_business_license" class="mb-2 ml-1 text-xs opacity-80 flex">
-                                    جواز کسب
-                                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                                    </svg>
-                                </label>
-                                {{ form.business_license }}
-                            </div>
-                            <div class="md:w-1/2 mt-5 md:mt-0">
-                                <label for="id_national_id_card" class="mb-2 ml-1 text-xs opacity-80 flex">
-                                    کارت ملی
-                                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                                    </svg>
-                                </label>
-                                {{ form.national_id_card }}
-                            </div>
-                        </div>
-
-                        <div class="md:flex gap-x-5 gap-y-5 mb-5">
-                            <div class="md:w-1/2">
-                                <label for="id_shop_photo" class="mb-2 ml-1 text-xs opacity-80 flex">
-                                    عکس محل کسب
-                                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                                    </svg>
-                                </label>
-                                {{ form.shop_photo }}
+                    {% if user.is_authenticated %}
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="md:flex gap-x-5 gap-y-5 mb-5">
+                                <div class="md:w-1/2">
+                                    <label for="id_full_name" class="mb-2 ml-1 text-xs opacity-80 flex">
+                                        نام کامل
+                                        <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
+                                            <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
+                                        </svg>
+                                    </label>
+                                    {{ form.full_name }}
+                                </div>
+                                <div class="md:w-1/2 mt-5 md:mt-0">
+                                    <label for="id_birth_date" class="mb-2 ml-1 text-xs opacity-80 flex">
+                                        تاریخ تولد
+                                        <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
+                                            <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
+                                        </svg>
+                                    </label>
+                                    {{ form.date_of_birth }}
+                                </div>
                             </div>
 
-                        </div>
+                            <div class="md:flex gap-x-5 gap-y-5 mb-5">
+                                <div class="md:w-1/2">
+                                    <label for="id_phone_number" class="mb-2 ml-1 text-xs opacity-80 flex">
+                                        شماره تلفن
+                                        <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
+                                            <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
+                                        </svg>
+                                    </label>
+                                    {{ form.phone_number }}
+                                </div>
+                                <div class="md:w-1/2 mt-5 md:mt-0">
+                                    <label for="id_business_name" class="mb-2 ml-1 text-xs opacity-80 flex">
+                                        نام کسب‌وکار
+                                        <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
+                                            <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
+                                        </svg>
+                                    </label>
+                                    {{ form.business_name }}
+                                </div>
+                            </div>
 
-                         <div class="md:flex gap-x-5 gap-y-5 mb-5">
-                            <div class="md:w-1/2">
-                                <label for="id_address" class="mb-2 ml-1 text-xs opacity-80 flex">
-                                    آدرس
-                                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                                    </svg>
-                                </label>
-                                {{ form.address }}
+                            <div class="md:flex gap-x-5 gap-y-5 mb-5">
+                                <div class="md:w-1/2">
+                                    <label for="id_business_license" class="mb-2 ml-1 text-xs opacity-80 flex">
+                                        جواز کسب
+                                        <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
+                                            <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
+                                        </svg>
+                                    </label>
+                                    {{ form.business_license }}
+                                </div>
+                                <div class="md:w-1/2 mt-5 md:mt-0">
+                                    <label for="id_national_id_card" class="mb-2 ml-1 text-xs opacity-80 flex">
+                                        کارت ملی
+                                        <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
+                                            <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
+                                        </svg>
+                                    </label>
+                                    {{ form.national_id_card }}
+                                </div>
                             </div>
-                             <div class="md:w-1/2">
-                                <label for="id_description" class="mb-2 ml-1 text-xs opacity-80 flex">
-                                    توضیحات:
-                                    <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
-                                        <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
-                                    </svg>
-                                </label>
-                                {{ form.description }}
+
+                            <div class="md:flex gap-x-5 gap-y-5 mb-5">
+                                <div class="md:w-1/2">
+                                    <label for="id_shop_photo" class="mb-2 ml-1 text-xs opacity-80 flex">
+                                        عکس محل کسب
+                                        <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
+                                            <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
+                                        </svg>
+                                    </label>
+                                    {{ form.shop_photo }}
+                                </div>
+
                             </div>
+
+                            <div class="md:flex gap-x-5 gap-y-5 mb-5">
+                                <div class="md:w-1/2">
+                                    <label for="id_address" class="mb-2 ml-1 text-xs opacity-80 flex">
+                                        آدرس
+                                        <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
+                                            <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
+                                        </svg>
+                                    </label>
+                                    {{ form.address }}
+                                </div>
+                                <div class="md:w-1/2">
+                                    <label for="id_description" class="mb-2 ml-1 text-xs opacity-80 flex">
+                                        توضیحات:
+                                        <svg class="fill-red-500" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4d4d4d" viewBox="0 0 256 256">
+                                            <path d="M210.23,101.57l-72.6,29,51.11,65.71a6,6,0,0,1-9.48,7.36L128,137.77,76.74,203.68a6,6,0,1,1-9.48-7.36l51.11-65.71-72.6-29a6,6,0,1,1,4.46-11.14L122,119.14V40a6,6,0,0,1,12,0v79.14l71.77-28.71a6,6,0,1,1,4.46,11.14Z"></path>
+                                        </svg>
+                                    </label>
+                                    {{ form.description }}
+                                </div>
+                            </div>
+                            <span class="flex justify-center items-center my-5">
+                                <button type="submit" class="px-7 py-2 text-center text-white bg-red-400 hover:bg-red-500 transition rounded-lg text-sm">ارسال</button>
+                            </span>
+                        </form>
+                    {% else %}
+                        <div class="text-center text-red-500 font-semibold text-lg">
+                            ابتدا ثبت‌نام کرده یا لاگین کنید تا بتوانید فرم را پر کنید.
                         </div>
-                        <span class="flex justify-center items-center my-5">
-                            <button type="submit" class="px-7 py-2 text-center text-white bg-red-400 hover:bg-red-500 transition rounded-lg text-sm">ارسال</button>
-                        </span>
-                    </form>
+                    {% endif %}
+
                 </div>
-
             </div>
         </div>
     </div>

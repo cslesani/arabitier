@@ -53,7 +53,7 @@
             <div class="srcollbar" data-simplebar>
                 <ul class="menu" data-fc-type="accordion">
 
-
+                    .
                     <li class="menu-item">
                         <a href="index.html" class="menu-link">
                             <span class="menu-icon"><i class="mgc_home_3_line"></i></span>
@@ -106,6 +106,12 @@
                             <li class="menu-item">
                                 <a href="{% url 'adminpanel:add_product' %}" class="menu-link">
                                     <span class="menu-tex0t"> اضافه کردن محصول </span>
+                                </a>
+                            </li>
+
+                            <li class="menu-item">
+                                <a href="{% url 'adminpanel:approve_products' %}" class="menu-link">
+                                    <span class="menu-tex0t"> بررسی محصولات فروشنده ها </span>
                                 </a>
                             </li>
                         </ul>
@@ -410,6 +416,7 @@
 {% block add_product %}{% endblock %}
 {% block add_article %}{% endblock %}
 {% block show_request %}{% endblock %}
+{% block show_product_vendor_add %}{% endblock %}
 
 
 

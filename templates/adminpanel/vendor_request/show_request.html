@@ -117,12 +117,12 @@
                                         <td class="whitespace-nowrap py-4 px-3 text-center text-sm font-medium">
                                            <form action="{% url 'adminpanel:approve-request' request.id %}" method="post" style="display:inline;">
                                                 {% csrf_token %}
-                                                <button type="submit" class="btn btn-success">تایید</button>
+                                                <button type="submit" class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-success/90 text-white">تایید</button>
                                             </form>
                                             |
                                             <form action="{% url 'adminpanel:reject-request' request.id %}" method="post" style="display:inline;">
                                                 {% csrf_token %}
-                                                <button type="submit" class="btn btn-danger">رد</button>
+                                                <button type="submit" class="inline-flex items-center gap-1.5 py-1 px-3 rounded text-xs font-medium bg-danger/25 text-danger">رد</button>
                                             </form>
                                         </td>
                                     <td class="whitespace-nowrap py-4 pe-3 text-sm font-medium text-gray-900 dark:text-gray-200">{{ request.get_status_display }}</td>

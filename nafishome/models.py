@@ -3,6 +3,23 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+class Inseam(models.Model):
+    value = models.IntegerField(unique=True)  # فاق
+
+    def __str__(self):
+        return str(self.value)
+
+class Diameter(models.Model):
+    value = models.IntegerField(unique=True)  # سایز
+
+    def __str__(self):
+        return str(self.value)
+
+class Width(models.Model):
+    value = models.IntegerField(unique=True)  # عرض
+
+    def __str__(self):
+        return str(self.value)
 
 class Product(models.Model):
     #artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
@@ -13,9 +30,9 @@ class Product(models.Model):
     product_number = models.IntegerField()
     product_price = models.IntegerField(default=0)
     product_stock = models.IntegerField(default=0)
-    product_view=models.IntegerField(default=0)
+    product_view = models.IntegerField(default=0)
     product_width=models.IntegerField(default=0)
-    product_Diameter=models.IntegerField(default=0)
+    product_Diameter=models.FloatField(default=0)
     product_layer=models.IntegerField(default=0)
     product_weight=models.IntegerField(default=0)
     product_speed=models.IntegerField(default=0)
@@ -41,4 +58,9 @@ class Review(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.product.name}'
+
+
+
+
+
 

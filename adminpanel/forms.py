@@ -1,8 +1,22 @@
 from django import forms
 from nafishome.models import Product
 from article.models import Article
+from nafishome.models import Inseam,Width,Diameter
+
 
 class ProductForm(forms.ModelForm):
+    product_view = forms.ChoiceField(
+        choices=[(inseam.value, inseam.value) for inseam in Inseam.objects.all()],
+        label="فاق"
+    )
+    product_width = forms.ChoiceField(
+        choices=[(width.value, width.value) for width in Width.objects.all()],
+        label="عرض"
+    )
+    product_Diameter = forms.ChoiceField(
+        choices=[(diameter.value, diameter.value) for diameter in Diameter.objects.all()],
+        label="عرض"
+    )
     class Meta:
         model = Product
         fields = [
@@ -14,6 +28,9 @@ class ProductForm(forms.ModelForm):
             'product_type','product_car_type','product_model','product_garanty_year',
             'product_create_year', 'product_image'
         ]
+        #product_view = forms.ModelChoiceField(queryset=Inseam.objects.all(), label="فاق")
+
+
 
 
 class ArticleForm(forms.ModelForm):

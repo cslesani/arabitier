@@ -1,7 +1,8 @@
 from django import forms
 from .models import Product
 from django import forms
-from .models import Review
+from .models import Review,Inseam
+
 
 
 class ProductSearchForm(forms.ModelForm):
@@ -26,3 +27,9 @@ class ReviewForm(forms.ModelForm):
             'rating': forms.NumberInput(attrs={'min': 1, 'max': 5}),
             'comment': forms.Textarea(attrs={'rows': 4}),
         }
+
+
+class InseamForm(forms.ModelForm):
+    class Meta:
+        model = Inseam
+        fields = ['value']  # یا هر فیلدی که نیاز دارید

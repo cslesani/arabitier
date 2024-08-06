@@ -3,6 +3,7 @@ from article.models import Article
 from .forms import ProductSearchForm
 from .models import Product, Review
 from .forms import ReviewForm
+from nafishome.models import Width,Diameter,Inseam
 
 
 
@@ -19,7 +20,9 @@ def success_page(request):
 
 
 def index(request):
-
+    inseams = Inseam.objects.all()
+    widths = Width.objects.all()
+    diameters = Diameter.objects.all()
     data = Product.objects.all()
     articleindexdata = Article.objects.all().order_by('-id')[:4]
 
@@ -70,7 +73,7 @@ def index(request):
         else:
             form = ProductSearchForm()
 
-    return render(request, 'index.html', {'data': data, 'articleindexdata': articleindexdata, 'countcart': countcart,'form': form})
+    return render(request, 'index.html', {'data': data, 'articleindexdata': articleindexdata, 'countcart': countcart,'form': form,'inseams': inseams,'widths': widths,'diameters': diameters})
 
 def product_detail(request, product_id):
     from cart.models import CartItem
@@ -98,3 +101,27 @@ def product_detail(request, product_id):
         'form': form
     }
     return render(request, 'product_detail.html', context)
+
+#search
+def product_search(request):
+    print("Width:", request.GET.get('width'))
+    print("Diameter:", request.GET.get('diameter'))
+    print("Inseam:", request.GET.get('inseam'))
+
+    products = Product.objects.all()
+
+    # دریافت مقادیر از فرم
+    width = request.GET.get('width')
+    diameter = request.GET.get('diameter')
+    inseam = request.GET.get('inseam')
+
+    # اعمال فیلترها
+    if width:
+        products = products.filter(product_width=width)
+    if diameter:
+        products = products.filter(product_Diameter=diameter)  # توجه به نام فیلد با حرف بزرگ D
+    if inseam:
+        products = products.filter(product_view=inseam)
+
+    return render(request, 'product_tier_list.html', {'products': products})
+

@@ -2,22 +2,17 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login,logout
 from .forms import LoginForm
-
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required, user_passes_test
-
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import SignUpForm
 from django.core.exceptions import PermissionDenied
+from vendor.models import SellerRequest
 
 # accounts/views.py
-
-
-
-
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -87,7 +82,13 @@ def admin_dashboard(request):
 def user_dashboard(request):
     from cart.models import CartItem  # واردات داخل تابع
     countcart = CartItem.objects.filter(cart__user=request.user).count()
-    return render(request, 'userpanel/useindex.html',{'countcart':countcart})
+    try:
+        # بررسی وضعیت درخواست فروشنده کاربر
+        seller_request = SellerRequest.objects.get(user=request.user, status='approved')
+        is_seller = True
+    except SellerRequest.DoesNotExist:
+        is_seller = False
+    return render(request, 'userpanel/useindex.html',{'countcart':countcart,'is_seller': is_seller})
 
 def dashboard_redirect(request):
 

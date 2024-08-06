@@ -36,9 +36,8 @@
                                 </div>
                             </div>
 
-
-                                <div class="fallback">
-                                    <input name="file" type="file" multiple="multiple">
+                               <div class="fallback">
+                                    <input aria-label="تصویر محصول" class="form-control" id="ecommerce-product_image" name="{{ form.product_image.name }}" type="file"/>
                                 </div>
                                 <div class="dz-message needsclick w-full">
                                     <i class="mgc_pic_2_line text-8xl"></i>
@@ -112,16 +111,34 @@
                                     </div>
 
                                      <div class="">
-                                        <label class="mb-2 block" for="ecommerce-product_view">فاق</label>
-                                        <input  class="form-input" aria-label="رخ محصول (فاق)" class="form-control" id="ecommerce-product_view" name="{{ form.product_view.name }}" placeholder="بازدید محصول" type="number" value="{{ form.product_view.value }}"/>
+                                       <label class="mb-2 block" for="ecommerce-product_view">فاق</label>
+                                        <select class="form-input form-control" id="ecommerce-product_view" name="{{ form.product_view.name }}">
+                                            {% for value, display in form.product_view.field.choices %}
+                                                <option value="{{ value }}" {% if value == form.product_view.value %}selected{% endif %}>
+                                                    {{ display }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
                                     </div>
                                     <div class="">
-                                        <label class="mb-2 block" for="ecommerce-product_width"> عرض محصول  (پهنا)</label>
-                                        <input class="form-input" aria-label="عرض محصول" class="form-control" id="ecommerce-product_width" name="{{ form.product_width.name }}" placeholder="عرض محصول" type="number" value="{{ form.product_width.value }}"/>
+                                        <label class="mb-2 block" for="ecommerce-product_width">عرض</label>
+                                        <select class="form-input form-control" id="ecommerce-product_width" name="{{ form.product_width.name }}">
+                                            {% for value, display in form.product_width.field.choices %}
+                                                <option value="{{ value }}" {% if value == form.product_width.value %}selected{% endif %}>
+                                                    {{ display }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
                                     </div>
                                     <div class="">
-                                        <label class="mb-2 block" for="ecommerce-product_diameter"> قطر محصول (رینگ)</label>
-                                        <input class="form-input" aria-label="قطر محصول" class="form-control" id="ecommerce-product_diameter" name="{{ form.product_Diameter.name }}" placeholder="قطر محصول" type="number" value="{{ form.product_Diameter.value }}"/>
+                                       <label class="mb-2 block" for="ecommerce-product_Diameter">قطر محصول (سایز)</label>
+                                        <select class="form-input form-control" id="ecommerce-product_Diameter" name="{{ form.product_Diameter.name }}">
+                                            {% for value, display in form.product_Diameter.field.choices %}
+                                                <option value="{{ value }}" {% if value == form.product_Diameter.value %}selected{% endif %}>
+                                                    {{ display }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
                                     </div>
                                     <div class="">
                                         <label class="mb-2 block" for="ecommerce-product_layer">مصرف سوخت</label>
@@ -179,6 +196,7 @@
                                          <label class="mb-2 block" for="ecommerce-product_profitpercent">درصد سود محصول</label>
                                         <input class="form-input" aria-label="درصد سود محصول" class="form-control" id="ecommerce-product_profitpercent" name="{{ form.product_profitpercent.name }}" placeholder="درصد سود محصول" type="number" value="{{ form.product_profitpercent.value }}"/>
                                       </div>
+
 
 
                                 </div>

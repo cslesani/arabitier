@@ -35,35 +35,42 @@
           </li>
         </ul>
       </div>
+
       <div class="bg-white rounded-lg w-full lg:w-96 p-2 relative">
         <div class="flex md:gap-x-5 relative">
           <div class="w-1/2">
+           <form method="GET" action="{% url 'product_search' %}">
+
             <input type="radio" id="4" name="form" value="4" class="hidden peer" required="" checked>
             <label for="4" class="inline-flex items-center justify-center w-full px-0 py-2 text-sm md:text-base text-gray-400 cursor-pointer hover:text-gray-600 peer-checked:text-gray-600 peer-checked:border-b border-red-500 transition-all duration-300">
              بر اساس سایز تایر
             </label>
             <div class="flex-col w-full items-center justify-center mt-10 gap-y-5 absolute top-6 hidden peer-checked:flex">
-              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
-                <option value="ppp">پهنای تایر</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-              </select>
-              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
-                <option value="ppp">فاق</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-              </select>
-              <select class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
-                <option value="ppp">قطر رینگ</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-              </select>
-              <a href="" class="bg-red-500 w-11/12 text-center text-white py-3 rounded-xl hover:bg-red-400 mt-5">
+                <select name="width" class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                    <option value="">پهنای تایر (عرض)</option>
+                    {% for width in widths %}
+                        <option value="{{ width.value }}">{{ width.value }}</option>
+                    {% endfor %}
+                </select>
+                <select name="diameter" class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                    <option value="">قطر رینگ</option>
+                    {% for diameter in diameters %}
+                        <option value="{{ diameter.value }}">{{ diameter.value }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="inseam" class="border border-zinc-300 w-11/12 mx-auto rounded-xl p-2 text-zinc-500 outline-none">
+                    <option value="">فاق</option>
+                    {% for inseam in inseams %}
+                        <option value="{{ inseam.value }}">{{ inseam.value }}</option>
+                    {% endfor %}
+                </select>
+
+
+             <button type="submit" class="bg-red-500 w-11/12 text-center text-white py-3 rounded-xl hover:bg-red-400 mt-5">
                 جستجو
-              </a>
+            </button>
+           </form>
               <div class="sm:w-10/12">
                 <img src="{% static 'assets/image/tireSelcet.png' %}" class="mb-2 opacity-45" alt="">
                 <p id="textTire" class="absolute bottom-5 sm:bottom-12 text-2xl left-1/2 flex font-semibold text-zinc-500">
@@ -83,19 +90,20 @@
                     16
                   </span>
                   <span>
-                    94R
+
                   </span>
                 </p>
               </div>
             </div>
           </div>
+
           <div class="w-1/2">
             <input type="radio" id="5" name="form" value="5" class="hidden peer" required="">
             <label for="5" class="inline-flex items-center justify-center w-full px-0 py-2 text-sm md:text-base text-gray-400 cursor-pointer hover:text-gray-600 peer-checked:text-gray-600 peer-checked:border-b border-red-500 transition-all duration-300">
               بر اساس نوع خودرو
             </label>
             <div class="flex-col w-full items-center justify-center mt-10 gap-y-5 absolute top-6 left-0 hidden peer-checked:flex">
-               <form method="post" class="flex-col w-full items-center justify-center mt-10 gap-y-5 absolute top-6 left-0">
+               <!--form method="post" class="flex-col w-full items-center justify-center mt-10 gap-y-5 absolute top-6 left-0"-->
             {% csrf_token %}
             {{ form.product_brandname }}
             {{ form.product_model }}
@@ -105,12 +113,13 @@
             <button type="submit" class="bg-red-500 w-11/12 text-center text-white py-3 rounded-xl hover:bg-red-400 mt-5">
                 جستجو
             </button>
-        </form>
+            <!--/form-->
+
             </div>
           </div>
         </div>
       </div>
-    </form>
+
 
     <img src="{% static 'assets/image/heroSlider/SLIDE1.jpg' %}" alt="" class="rounded-lg shadow-lg shadow-gray-600">
 

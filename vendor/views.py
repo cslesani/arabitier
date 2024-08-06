@@ -3,7 +3,10 @@ from .forms import SellerRequestForm
 
 def seller_request_view(request):
     from cart.models import CartItem  # واردات داخل تابع
-    countcart = CartItem.objects.filter(cart__user=request.user).count()
+
+    user = request.user if request.user.is_authenticated else None
+    countcart = CartItem.objects.filter(cart__user=user).count() if user else 0
+
     if request.method == 'POST':
         form = SellerRequestForm(request.POST, request.FILES)
         if form.is_valid():
